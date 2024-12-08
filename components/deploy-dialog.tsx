@@ -57,18 +57,19 @@ export function DeployDialog({
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="default">
-          <Logo style="e2b" width={16} height={16} className="mr-2" />
-          Deploy to E2B
+          {/* <Logo style="e2b" width={16} height={16} className="mr-2" /> */}
+          {/* Deploy to E2B */}
+          Start coding
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="p-4 w-80 flex flex-col gap-2">
-        <div className="text-sm font-semibold">Deploy to E2B</div>
+        <div className="text-sm font-semibold">Start coding with Nova</div>
         <div className="text-sm text-muted-foreground">
-          Deploying the fragment will make it publicly accessible to others via
-          link.
+          Once you start coding, you won't be come back to this page.
         </div>
         <div className="text-sm text-muted-foreground">
-          The fragment will be available up until the expiration date you choose
+          Nova will help you break this app down and code it yourself.
+          {/* The fragment will be available up until the expiration date you choose
           and you&apos;ll be billed based on our{' '}
           <a
             href="https://e2b.dev/docs/pricing"
@@ -77,7 +78,7 @@ export function DeployDialog({
           >
             Compute pricing
           </a>
-          .
+          . */}
         </div>
         <div className="text-sm text-muted-foreground">
           All new accounts receive $100 worth of compute credits. Upgrade to{' '}

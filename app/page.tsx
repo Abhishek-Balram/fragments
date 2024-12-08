@@ -30,7 +30,7 @@ export default function Home() {
   const [languageModel, setLanguageModel] = useLocalStorage<LLMModelConfig>(
     'languageModel',
     {
-      model: 'claude-3-5-sonnet-latest',
+      model: 'gpt-4o',
     },
   )
 
@@ -39,7 +39,7 @@ export default function Home() {
   const [result, setResult] = useState<ExecutionResult>()
   const [messages, setMessages] = useState<Message[]>([])
   const [fragment, setFragment] = useState<DeepPartial<FragmentSchema>>()
-  const [currentTab, setCurrentTab] = useState<'code' | 'fragment'>('code')
+  const [currentTab, setCurrentTab] = useState<'code' | 'fragment'>('fragment')
   const [isPreviewLoading, setIsPreviewLoading] = useState(false)
   const [isAuthDialogOpen, setAuthDialog] = useState(false)
   const [authView, setAuthView] = useState<AuthViewType>('sign_in')
@@ -292,7 +292,8 @@ export default function Home() {
             files={files}
             handleFileChange={handleFileChange}
           >
-            <ChatPicker
+            <></>
+            {/* <ChatPicker
               templates={templates}
               selectedTemplate={selectedTemplate}
               onSelectedTemplateChange={setSelectedTemplate}
@@ -305,13 +306,14 @@ export default function Home() {
               onLanguageModelChange={handleLanguageModelChange}
               apiKeyConfigurable={!process.env.NEXT_PUBLIC_NO_API_KEY_INPUT}
               baseURLConfigurable={!process.env.NEXT_PUBLIC_NO_BASE_URL_INPUT}
-            />
+            /> */}
           </ChatInput>
         </div>
         <Preview
           apiKey={apiKey}
           selectedTab={currentTab}
-          onSelectedTabChange={setCurrentTab}
+          // onSelectedTabChange={setCurrentTab}
+          onSelectedTabChange={() => setCurrentTab('fragment')}
           isChatLoading={isLoading}
           isPreviewLoading={isPreviewLoading}
           fragment={fragment}

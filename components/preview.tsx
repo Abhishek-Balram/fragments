@@ -3,6 +3,8 @@ import { FragmentPreview } from './fragment-preview'
 import { DeployDialog } from './deploy-dialog'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Loader2Icon, LoaderIcon, Terminal } from 'lucide-react'
+
 import {
   Tooltip,
   TooltipContent,
@@ -65,7 +67,7 @@ export function Preview({
               <TooltipContent>Close sidebar</TooltipContent>
             </Tooltip>
           </TooltipProvider>
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <TabsList className="px-1 py-0 border h-8">
               <TabsTrigger
                 className="font-normal text-xs py-1 px-2 gap-1 flex items-center"
@@ -93,7 +95,7 @@ export function Preview({
                 )}
               </TabsTrigger>
             </TabsList>
-          </div>
+          </div> */}
           {result && (
             <div className="flex items-center justify-end gap-2">
               {isLinkAvailable && (
@@ -108,7 +110,7 @@ export function Preview({
         </div>
         {fragment && (
           <div className="overflow-y-auto w-full h-full">
-            <TabsContent value="code" className="h-full">
+            {/* <TabsContent value="code" className="h-full">
               {fragment.code && fragment.file_path && (
                 <FragmentCode
                   files={[
@@ -119,6 +121,12 @@ export function Preview({
                   ]}
                 />
               )}
+            </TabsContent> */}
+            <TabsContent value="code" className="h-full">
+              <div className="flex items-center justifer-center gap-2">
+                <LoaderIcon strokeWidth={2} className="animate-spin w-4 h-4" />
+                <span>Generating...</span>
+              </div>
             </TabsContent>
             <TabsContent value="fragment" className="h-full">
               {result && <FragmentPreview result={result as ExecutionResult} />}
