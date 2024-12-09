@@ -63,9 +63,9 @@ export function DeployDialog({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="p-4 w-80 flex flex-col gap-2">
-        <div className="text-sm font-semibold">Start coding with Nova</div>
+        <div className="text-sm font-semibold">Are you sure?</div>
         <div className="text-sm text-muted-foreground">
-          Once you start coding, you won't be come back to this page.
+          Once you start coding, you can't come back to this page.
         </div>
         <div className="text-sm text-muted-foreground">
           Nova will help you break this app down and code it yourself.
@@ -80,7 +80,7 @@ export function DeployDialog({
           </a>
           . */}
         </div>
-        <div className="text-sm text-muted-foreground">
+        {/* <div className="text-sm text-muted-foreground">
           All new accounts receive $100 worth of compute credits. Upgrade to{' '}
           <a
             href="https://e2b.dev/dashboard?tab=billing"
@@ -90,38 +90,14 @@ export function DeployDialog({
             Pro tier
           </a>{' '}
           for longer expiration.
-        </div>
-        <form className="flex flex-col gap-2" onSubmit={publishURL}>
-          {publishedURL ? (
-            <div className="flex items-center gap-2">
-              <Input value={publishedURL} readOnly />
-              <CopyButton content={publishedURL} />
-            </div>
-          ) : (
-            <Select onValueChange={(value) => setDuration(value)} required>
-              <SelectTrigger>
-                <SelectValue placeholder="Set expiration" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Expires in</SelectLabel>
-                  <SelectItem value="30m">30 Minutes</SelectItem>
-                  <SelectItem value="1h">1 Hour</SelectItem>
-                  <SelectItem value="3h">3 Hours · Pro</SelectItem>
-                  <SelectItem value="6h">6 Hours · Pro</SelectItem>
-                  <SelectItem value="1d">1 Day · Pro</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          )}
-          <Button
+        </div> */}
+        <Button
             type="submit"
             variant="default"
             disabled={publishedURL !== null}
-          >
-            {publishedURL ? 'Deployed' : 'Accept and deploy'}
-          </Button>
-        </form>
+        >
+          Start
+        </Button>
       </DropdownMenuContent>
     </DropdownMenu>
   )
